@@ -1,0 +1,61 @@
+.container {
+	padding: 2rem;
+	margin-top: 4rem;
+
+	@media (min-width: 650px) {
+		padding: 2rem 5rem;
+	}
+}
+
+.list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.img {
+	display: block;
+	width: 45%;
+	height: 0;
+	padding-bottom: 45%;
+
+	background-size: cover;
+	background-position: center;
+	background-repeat: none;
+	border: 3px solid transparent;
+	border-radius: 5px;
+	margin: .5rem;
+	transition: .2s ease-in-out;
+
+	&:hover {
+		border: 2px solid #fff;
+		cursor: pointer;
+	}
+
+	@media (min-width: 650px) {
+		width: 22%;
+		padding-bottom: 22%;
+	}
+
+	@media (min-width: 1000px) {
+		width: 18%;
+		padding-bottom: 18%;
+	}
+}
+
+.img-7wonders 				{ background-image: url("/avatar/7-wonders.webp"); }
+.img-awkwardGuests 		{ background-image: url("/avatar/awkward-guests.webp"); }
+.img-barenpark 				{ background-image: url("/avatar/barenpark.webp"); }
+.img-brewcrafters 		{ background-image: url("/avatar/brewcrafters.webp"); }
+.img-dinosaurWorld 		{ background-image: url("/avatar/dinosaur-world.webp"); }
+.img-dixit 						{ background-image: url("/avatar/dixit.webp"); }
+.img-evolutionClimate	{ background-image: url("/avatar/evolution-climate.webp"); }
+.img-obsession 				{ background-image: url("/avatar/obsession.webp"); }
+.img-outlive 					{ background-image: url("/avatar/outlive.webp"); }
+.img-panAm 						{ background-image: url("/avatar/pan-am.webp"); }
+.img-parks						{ background-image: url("/avatar/parks.webp"); }
+.img-santaMonica 			{ background-image: url("/avatar/santa-monica.webp"); }
+.img-sushiGo 					{ background-image: url("/avatar/sushi-go.webp"); }
+.img-trickerion 			{ background-image: url("/avatar/trickerion.webp"); }
+.img-viticulture 			{ background-image: url("/avatar/viticulture.webp"); }
+.img-wingspan 				{ background-image: url("/avatar/wingspan.webp"); }

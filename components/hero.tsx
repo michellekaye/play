@@ -9,7 +9,6 @@ export default function Hero(
 			<div className={styles.overlay} />
 			<div className={styles.titleWrapper}>
 				<div className={`${styles.avatar} ${styles[`avatar-${game}`]}`} />
-
 				<div className={styles.textWrapper}>
 					<h1 className={styles.title}>{title}</h1>
 					<p className={styles.subtitle}>{subtitle}</p>
