@@ -21,7 +21,7 @@ const Home: NextPage = (props) => {
         <link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<Hero game="home" title="Michelle's Games" subtitle="An complete database of Michelle's board game collection with info taken from BGG." />
+			<Hero game="home" title="Michelle's Games" subtitle="Showcasing Michelle's complete board game collection (with info from Board Game Geek)." />
 			
 			<ThumbnailGrid heading="My personal favourites" list={favourites} />
 			<ThumbnailGrid heading="Have yet to play" list={unplayed}  />

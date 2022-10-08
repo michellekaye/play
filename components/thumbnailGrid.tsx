@@ -13,6 +13,9 @@ const games = {
 	barenpark: {
 		slug: 'barenpark',
 	},
+	battleship: {
+		slug: 'battleship',
+	},
 	brewcrafters: {
 		slug: 'brewcrafters',
 	},
@@ -46,6 +49,9 @@ const games = {
 	panAm: {
 		slug: 'pan-am',
 	},
+	pictionary: {
+		slug: 'pictionary',
+	},
 	parks: {
 		slug: 'parks',
 	},
@@ -63,6 +69,9 @@ const games = {
 	},
 	sceneItFriends: {
 		slug: 'scene-it-friends',
+	},
+	spyWeb: {
+		slug: 'spy-web',
 	},
 	sushiGo: {
 		slug: 'sushi-go',
