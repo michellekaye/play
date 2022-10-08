@@ -3,6 +3,14 @@ import Head from 'next/head';
 import ThumbnailGrid from '../components/thumbnailGrid';
 import Hero from '../components/hero';
 
+const favourites = [
+	'7wonders', 'obsession', 'panAm', 'parks', 'wingspan'
+];
+
+const unplayed = [
+	'brewcrafters', 'dinosaurWorld', 'evolutionClimate', 'outlive', 'riskGameOfThrones', 'trickerion'
+];
+
 const Home: NextPage = (props) => {
   return (
     <>
@@ -14,7 +22,10 @@ const Home: NextPage = (props) => {
 			</Head>
 
 			<Hero game="home" title="Michelle's Games" subtitle="An complete database of Michelle's board game collection with info taken from BGG." />
-			<ThumbnailGrid />
+			
+			<ThumbnailGrid heading="My personal favourites" list={favourites} />
+			<ThumbnailGrid heading="Have yet to play" list={unplayed}  />
+			<ThumbnailGrid heading="Entire collection" />
     </>
   )
 }
