@@ -108,12 +108,13 @@
 
 .title {
 	color: #fff;
+	line-height: 1;
 	margin: 0;
-	margin-bottom: 1rem;
+	margin-bottom: 1.25rem;
 	text-shadow: 2px 3px 8px rgb(0 0 0 / 50%);
 
 	@media (min-width: 650px) {
-		margin: 0;
+		margin: 0 0 .25rem;
 	}
 }
 
