@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import ThumbnailGrid from '../components/thumbnailGrid';
+import Hero from '../components/hero';
 
 const Home: NextPage = (props) => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = (props) => {
         <link rel="icon" href="/favicon.ico" />
 			</Head>
 
+			<Hero game="home" title="Michelle's Games" subtitle="An complete database of Michelle's board game collection with info taken from BGG." />
 			<ThumbnailGrid />
     </>
   )
