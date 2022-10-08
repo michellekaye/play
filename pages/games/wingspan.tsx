@@ -1,4 +1,4 @@
-import Button from '../../components/button';
+import Cta from '../../components/cta';
 import Hero from "../../components/hero";
 import Section from '../../components/section';
 
@@ -24,20 +24,12 @@ export default function Wingspan() {
 					Draw from hundreds of unique bird cards and play them.
 					The winner is the player with the most points after 4 rounds.
 				</p>
-				<p>
-					If you enjoy Terraforming Mars and Gizmos, we think this game will take flight at your table.
-				</p>
 			</Section>
 
-			<Section>
-				<Button href="https://boardgamegeek.com/boardgame/266192/wingspan" type="primary">
-					Board Game Geek
-				</Button>
-
-				<Button href="https://stonemaiergames.com/games/wingspan/">
-					Official Website
-				</Button>
-			</Section>
+			<Cta
+				bbg="https://boardgamegeek.com/boardgame/266192/wingspan"
+				official="https://stonemaiergames.com/games/wingspan/"
+			/>
 		</>
 	)
 }
