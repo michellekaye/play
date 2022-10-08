@@ -5,13 +5,13 @@ export default function Hero(
 ) {
 	return (
 		<>
-			<div className={`${styles.container} ${styles[`bg-${game}`]}`} />
+			<div className={`${styles.container} ${`bg-${game}`}`} />
 			<div className={styles.overlay} />
 
 			{
 				title && (
 					<div className={styles.titleWrapper}>
-						<div className={`${styles.avatar} ${styles[`avatar-${game}`]}`} />
+						<div className={`${styles.avatar} ${`avatar-${game}`}`} />
 						<div className={styles.textWrapper}>
 							<h1 className={styles.title}>{title}</h1>
 							<p className={styles.subtitle}>{subtitle}</p>

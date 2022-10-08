@@ -1,0 +1,98 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background: #202020;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.bg-home 									{ background-image: url("/hero/home.jpeg"); }
+.bg-7wonders 							{ background-image: url("/hero/7-wonders.jpeg"); }
+.bg-awkwardGuests 				{ background-image: url("/hero/awkward-guests.webp"); }
+.bg-barenpark 						{ background-image: url("/hero/barenpark.jpeg"); }
+.bg-battleship 						{ background-image: url("/hero/battleship.webp"); }
+.bg-brewcrafters 					{ background-image: url("/hero/brewcrafters.jpeg"); }
+.bg-clue 									{ background-image: url("/hero/clue.jpeg"); }
+.bg-catan 								{ background-image: url("/hero/catan.jpg"); }
+.bg-clueDisney 						{ background-image: url("/hero/clue-disney.webp"); }
+.bg-dinosaurWorld 				{ background-image: url("/hero/dinosaur-world.webp"); }
+.bg-dixit 								{ background-image: url("/hero/dixit.jpeg"); }
+.bg-evolutionClimate			{ background-image: url("/hero/evolution-climate.png"); }
+.bg-life									{ background-image: url("/hero/life.webp"); }
+.bg-monopolyDisney				{ background-image: url("/hero/monopoly-disney.jpeg"); }
+.bg-obsession 						{ background-image: url("/hero/obsession.jpeg"); }
+.bg-outlive 							{ background-image: url("/hero/outlive.png"); }
+.bg-panAm 								{ background-image: url("/hero/panam.jpeg"); }
+.bg-parks									{ background-image: url("/hero/parks.jpeg"); }
+.bg-pictionary						{ background-image: url("/hero/pictionary.jpeg"); }
+.bg-risk									{ background-image: url("/hero/risk.jpeg"); }
+.bg-riskGameOfThrones			{ background-image: url("/hero/risk-game-of-thrones.jpeg"); }
+.bg-santaMonica 					{ background-image: url("/hero/santa-monica.png"); }
+.bg-scrabble 							{ background-image: url("/hero/scrabble.jpeg"); }
+.bg-sceneItFriends 				{ background-image: url("/hero/scene-it-friends.jpeg"); }
+.bg-sceneItDisney 				{ background-image: url("/hero/scene-it-disney.webp"); }
+.bg-spyWeb	 							{ background-image: url("/hero/spy-web.webp"); }
+.bg-sushiGo 							{ background-image: url("/hero/sushi-go.jpeg"); }
+.bg-trickerion 						{ background-image: url("/hero/trickerion.jpeg"); }
+.bg-viticulture 					{ background-image: url("/hero/viticulture.jpeg"); }
+.bg-wingspan 							{ background-image: url("/hero/wingspan.jpeg"); }
+.bg-wingspanOceania				{ background-image: url("/hero/wingspan-oceania.webp"); }
+
+.avatar-home 							{ background-image: url("/hero/home.webp"); }
+.avatar-7wonders 					{ background-image: url("/avatar/7-wonders.webp"); }
+.avatar-awkwardGuests 		{ background-image: url("/avatar/awkward-guests.webp"); }
+.avatar-barenpark 				{ background-image: url("/avatar/barenpark.webp"); }
+.avatar-battleship 				{ background-image: url("/avatar/battleship.webp"); }
+.avatar-brewcrafters 			{ background-image: url("/avatar/brewcrafters.webp"); }
+.avatar-catan 						{ background-image: url("/avatar/catan.webp"); }
+.avatar-clue 							{ background-image: url("/avatar/clue.webp"); }
+.avatar-clueDisney 				{ background-image: url("/avatar/clue-disney.webp"); }
+.avatar-dinosaurWorld 		{ background-image: url("/avatar/dinosaur-world.webp"); }
+.avatar-dixit 						{ background-image: url("/avatar/dixit.webp"); }
+.avatar-evolutionClimate	{ background-image: url("/avatar/evolution-climate.webp"); }
+.avatar-life							{ background-image: url("/avatar/life.webp"); }
+.avatar-monopolyDisney		{ background-image: url("/avatar/monopoly-disney.webp"); }
+.avatar-obsession 				{ background-image: url("/avatar/obsession.webp"); }
+.avatar-outlive 					{ background-image: url("/avatar/outlive.webp"); }
+.avatar-panAm 						{ background-image: url("/avatar/pan-am.webp"); }
+.avatar-parks							{ background-image: url("/avatar/parks.webp"); }
+.avatar-pictionary				{ background-image: url("/avatar/pictionary.webp"); }
+.avatar-risk							{ background-image: url("/avatar/risk.webp"); }
+.avatar-riskGameOfThrones { background-image: url("/avatar/risk-game-of-thrones.webp"); }
+.avatar-santaMonica 			{ background-image: url("/avatar/santa-monica.webp"); }
+.avatar-scrabble 					{ background-image: url("/avatar/scrabble.webp"); }
+.avatar-sceneItDisney 		{ background-image: url("/avatar/scene-it-disney.webp"); }
+.avatar-sceneItFriends 		{ background-image: url("/avatar/scene-it-friends.webp"); }
+.avatar-spyWeb	 					{ background-image: url("/avatar/spy-web.webp"); }
+.avatar-sushiGo 					{ background-image: url("/avatar/sushi-go.webp"); }
+.avatar-trickerion 				{ background-image: url("/avatar/trickerion.webp"); }
+.avatar-viticulture 			{ background-image: url("/avatar/viticulture.webp"); }
+.avatar-wingspan 					{ background-image: url("/avatar/wingspan.webp"); }
+.avatar-wingspanOceania		{ background-image: url("/avatar/wingspan-oceania.webp"); }
