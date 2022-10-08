@@ -1,70 +1,85 @@
 import Link from 'next/link';
 import styles from './thumbnailGrid.module.scss';
 
+const games = {
+	'7wonders': {
+		slug: '7-wonders',
+	},
+	awkwardGuests: {
+		slug: 'awkward-guests',
+	},
+	barenpark: {
+		slug: 'barenpark',
+	},
+	brewcrafters: {
+		slug: 'brewcrafters',
+	},
+	clueDisney: {
+		slug: 'clue-disney',
+	},
+	dinosaurWorld: {
+		slug: 'dinosaur-world',
+	},
+	dixit: {
+		slug: 'dixit',
+	},
+	evolutionClimate: {
+		slug: 'evolution-climate',
+	},
+	monopolyDisney: {
+		slug: 'monopoly-disney',
+	},
+	obsession: {
+		slug: 'obsession',
+	},
+	outlive: {
+		slug: 'outlive',
+	},
+	panAm: {
+		slug: 'pan-am',
+	},
+	parks: {
+		slug: 'parks',
+	},
+	riskGameOfThrones: {
+		slug: 'risk-game-of-thrones',
+	},
+	santaMonica: {
+		slug: 'santa-monica',
+	},
+	sceneItFriends: {
+		slug: 'scene-it-friends',
+	},
+	sushiGo: {
+		slug: 'sushi-go',
+	},
+	trickerion: {
+		slug: 'trickerion',
+	},
+	viticulture: {
+		slug: 'viticulture',
+	},
+	wingspan: {
+		slug: 'wingspan',
+	}
+}
+
 export default function ThumbnailGrid() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.list}>
-				<Link className={styles.thumb} href="/games/7-wonders" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-7wonders`]}`} />
-				</Link>
-				<Link href="/games/awkward-guests" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-awkwardGuests`]}`} />
-				</Link>
-				<Link href="/games/barenpark" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-barenpark`]}`} />
-				</Link>
-				<Link href="/games/brewcrafters" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-brewcrafters`]}`} />
-				</Link>
-				<Link href="/games/clue-disney" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-clueDisney`]}`} />
-				</Link>
-				<Link href="/games/dinosaur-world" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-dinosaurWorld`]}`} />
-				</Link>
-				<Link href="/games/dixit" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-dixit`]}`} />
-				</Link>
-				<Link href="/games/evolution-climate" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-evolutionClimate`]}`} />
-				</Link>
-				<Link href="/games/monopoly-disney" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-monopolyDisney`]}`} />
-				</Link>
-				<Link href="/games/obsession" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-obsession`]}`} />
-				</Link>
-				<Link href="/games/outlive" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-outlive`]}`} />
-				</Link>
-				<Link href="/games/pan-am" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-panAm`]}`} />
-				</Link>
-				<Link href="/games/parks" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-parks`]}`} />
-				</Link>
-				<Link href="/games/risk-game-of-thrones" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-riskGameOfThrones`]}`} />
-				</Link>
-				<Link href="/games/santa-monica" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-santaMonica`]}`} />
-				</Link>
-				<Link href="/games/scene-it-friends" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-sceneItFriends`]}`} />
-				</Link>
-				<Link href="/games/sushi-go" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-sushiGo`]}`} />
-				</Link>
-				<Link href="/games/trickerion" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-trickerion`]}`} />
-				</Link>
-				<Link href="/games/viticulture" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-viticulture`]}`} />
-				</Link>
-				<Link href="/games/wingspan" passHref={true}>
-					<div className={`${styles.img} ${styles[`img-wingspan`]}`} />
-				</Link>
+				{
+					Object.keys(games).map((key) => (
+						<Link
+							key={key}
+							className={styles.thumb}
+							href={`/games/${games[key].slug}`}
+							passHref={true}
+						>
+							<div className={`${styles.img} ${styles[`img-${key}`]}`} />
+						</Link>
+					))
+				}
 			</div>
 		</div>
 
