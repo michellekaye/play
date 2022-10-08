@@ -16,6 +16,9 @@ const games = {
 	brewcrafters: {
 		slug: 'brewcrafters',
 	},
+	catan: {
+		slug: 'catan',
+	},
 	clueDisney: {
 		slug: 'clue-disney',
 	},
@@ -48,6 +51,9 @@ const games = {
 	},
 	santaMonica: {
 		slug: 'santa-monica',
+	},
+	scrabble: {
+		slug: 'scrabble',
 	},
 	sceneItDisney: {
 		slug: 'scene-it-disney',
