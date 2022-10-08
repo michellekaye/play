@@ -31,6 +31,9 @@ const games = {
 	evolutionClimate: {
 		slug: 'evolution-climate',
 	},
+	life: {
+		slug: 'life',
+	},
 	monopolyDisney: {
 		slug: 'monopoly-disney',
 	},
