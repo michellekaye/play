@@ -1,0 +1,19 @@
+.section {
+	color: rgba(255,255,255,.8);
+	line-height: 1.5;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 2rem 1rem;
+
+	&:last-child {
+		padding-bottom: 5rem;
+	}
+
+	@media (min-width: 650px) {
+		padding: 0 2rem;
+	}
+}
+
+.wrapper {
+	max-width: 500px;
+}
