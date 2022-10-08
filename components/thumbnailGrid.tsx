@@ -55,6 +55,9 @@ const games = {
 	parks: {
 		slug: 'parks',
 	},
+	risk: {
+		slug: 'risk',
+	},
 	riskGameOfThrones: {
 		slug: 'risk-game-of-thrones',
 	},
