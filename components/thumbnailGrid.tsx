@@ -17,6 +17,9 @@ export default function ThumbnailGrid() {
 				<Link href="/games/brewcrafters" passHref={true}>
 					<div className={`${styles.img} ${styles[`img-brewcrafters`]}`} />
 				</Link>
+				<Link href="/games/clue-disney" passHref={true}>
+					<div className={`${styles.img} ${styles[`img-clueDisney`]}`} />
+				</Link>
 				<Link href="/games/dinosaur-world" passHref={true}>
 					<div className={`${styles.img} ${styles[`img-dinosaurWorld`]}`} />
 				</Link>
