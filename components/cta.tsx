@@ -8,9 +8,14 @@ export default function Cta({ bbg, official }: any) {
 				Board Game Geek
 			</Button>
 
-			<Button href={official}>
-				Official Website
-			</Button>
+			{
+				official && (
+					<Button href={official}>
+						Official Website
+					</Button>
+				)
+			}
+
 		</Section>
   )
 }		
