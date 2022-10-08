@@ -7,7 +7,7 @@ const Home: NextPage = (props) => {
   return (
     <>
       <Head>
-				<title>Play</title>
+				<title>Michelle's Board Games</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="description" content="Michelle's board game collection" />
         <link rel="icon" href="/favicon.ico" />
