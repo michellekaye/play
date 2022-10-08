@@ -80,7 +80,7 @@ export default function ThumbnailGrid({ list, heading }: any) {
 						<Link
 							key={game}
 							className={styles.thumb}
-							href={`/games/${games[game].slug}`}
+							href={`/games/${games[game as keyof typeof games].slug}`}
 							passHref={true}
 						>
 							<div className={`${styles.img} ${styles[`img-${game}`]}`} />
