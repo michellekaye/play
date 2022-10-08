@@ -22,6 +22,9 @@ const games = {
 	catan: {
 		slug: 'catan',
 	},
+	clue: {
+		slug: 'clue',
+	},
 	clueDisney: {
 		slug: 'clue-disney',
 	},
