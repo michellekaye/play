@@ -49,6 +49,9 @@ const games = {
 	santaMonica: {
 		slug: 'santa-monica',
 	},
+	sceneItDisney: {
+		slug: 'scene-it-disney',
+	},
 	sceneItFriends: {
 		slug: 'scene-it-friends',
 	},
