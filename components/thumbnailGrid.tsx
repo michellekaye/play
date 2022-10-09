@@ -23,22 +23,28 @@ export default function ThumbnailGrid({ list, heading }: any) {
 	let gamesList = Object.keys(games);
 	if (list) { gamesList = list };
 
+	console.log(gamesList);
+	console.log(games);
+
 	return (
 		<div className={styles.container}>
 			{heading && (<h3 className={styles.heading}>{heading}</h3>)}
 
 			<div className={styles.list}>
 				{
-					gamesList.map((game) => (
-						<Link
-							key={game}
-							className={styles.thumb}
-							href={`/games/${games[game as keyof typeof games].slug}`}
-							passHref={true}
-						>
-							<div className={`${styles.img} ${`avatar-${game}`}`} />
-						</Link>
-					))
+					gamesList.map((game) => {
+						return (
+							<Link
+								key={game}
+								className={styles.thumb}
+								// @ts-ignore
+								href={`/games/${games[game as keyof typeof games].slug}`}
+								passHref={true}
+							>
+								<div className={`${styles.img} ${`avatar-${game}`}`} />
+							</Link>
+						)
+					})
 				}
 			</div>
 		</div>
