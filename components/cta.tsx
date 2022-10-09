@@ -1,10 +1,10 @@
 import Section from './section';
 import Button from './button';
 
-export default function Cta({ bbg, official }: any) {
+export default function Cta({ bgg, official }: any) {
   return (
 		<Section>
-			<Button href={bbg} type="primary">
+			<Button href={bgg} type="primary">
 				Board Game Geek
 			</Button>
 

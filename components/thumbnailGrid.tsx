@@ -2,26 +2,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './thumbnailGrid.module.scss';
 
-export default function ThumbnailGrid({ list, heading }: any) {
-	const [games, setGames] = useState("");
-
-	useEffect(() => {
-    const url = "/api/games";
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-				setGames(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-
-    fetchData();
-	}, []);
-
-	let gamesList = Object.keys(games);
-	if (list) { gamesList = list };
+export default function ThumbnailGrid({ games, heading }: any) {
+	const gamesList = games;
 
 	return (
 		<div className={styles.container}>
@@ -29,16 +11,15 @@ export default function ThumbnailGrid({ list, heading }: any) {
 
 			<div className={styles.list}>
 				{
-					gamesList.map((game) => {
+					gamesList.map((game: any) => {
 						return (
 							<Link
-								key={game}
+								key={game.id}
 								className={styles.thumb}
-								// @ts-ignore
-								href={`/games/${games[game as keyof typeof games].slug}`}
+								href={`/games/${game.id}`}
 								passHref={true}
 							>
-								<div className={`${styles.img} ${`avatar-${game}`}`} />
+								<div className={`${styles.img} ${`avatar-${game.id}`}`} />
 							</Link>
 						)
 					})
