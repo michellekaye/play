@@ -1,6 +1,6 @@
 ---
 title: "Wingspan: Oceania"
-expansion: false
+expansion: true
 lead: "Travel to Oceania to discover new birds for your wildlife preserve!"
 linkBgg: "https://boardgamegeek.com/boardgame/300580/wingspan-oceania-expansion"
 ---
