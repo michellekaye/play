@@ -23,9 +23,6 @@ export default function ThumbnailGrid({ list, heading }: any) {
 	let gamesList = Object.keys(games);
 	if (list) { gamesList = list };
 
-	console.log(gamesList);
-	console.log(games);
-
 	return (
 		<div className={styles.container}>
 			{heading && (<h3 className={styles.heading}>{heading}</h3>)}
