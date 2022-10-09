@@ -5,8 +5,6 @@ import ThumbnailGrid from '../components/thumbnailGrid';
 import Hero from '../components/hero';
 
 export default function Home({ allGamesData }: any) {
-	console.log(allGamesData);
-
   return (
     <>
       <Head>
