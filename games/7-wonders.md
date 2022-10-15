@@ -4,6 +4,9 @@ expansion: false
 lead: "Draft cards to develop your ancient civilization and build its Wonder of the World."
 linkBgg: "https://boardgamegeek.com/boardgame/68448/7-wonders"
 linkOfficial: "https://www.rprod.com/index.php/en/games/7-wonders"
+players: "2 - 7"
+playTime: "30 min"
+complexity: "2.32"
 ---
 
 You are the leader of one of the 7 great cities of the Ancient World. Gather resources, develop commercial routes, and affirm your military supremacy. Build your city and erect an architectural wonder which will transcend future times.

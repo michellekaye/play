@@ -1,0 +1,25 @@
+.sidebar {
+	color: #fff;
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 2;
+	order: 1;
+	padding: 1rem 2rem;
+	width: 100%;
+
+	p {
+		margin: 0;
+	}
+
+	@media (min-width: 800px) {
+		order: 2;
+		max-width: 300px;
+	}
+}
+
+.wrapper {
+	border-radius: 10px;
+	background: #333;
+	margin: 0 auto;
+	padding: 2rem;
+}

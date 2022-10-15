@@ -4,6 +4,9 @@ expansion: false
 lead: "Mr. Walton will be murdered—repeatedly! Uncover the clues to figure out who did it."
 linkBgg: "https://boardgamegeek.com/boardgame/188866/awkward-guests"
 linkOfficial: "http://www.awkwardguests.com/"
+players: "2-7"
+playTime: "30 min"
+complexity: "2.32"
 ---
 
 Awkward Guests, a.k.a. Incómodos Invitados, is a one-of-a-kind deduction game with infinite re-playability. You can recreate Mr. Walton's murder in so many different ways that you won't ever play two similar games! (Mr. Walton will not thank you for doing this.)
