@@ -3,6 +3,9 @@ title: "Barenpark: Bad News Bears"
 expansion: true
 lead: "Add new goals, grizzly bears, a monorail and a fifth park square to your bear park."
 linkBgg: "https://boardgamegeek.com/boardgameexpansion/264238/barenpark-bad-news-bears"
+players: "2 - 4"
+playTime: "30 - 45 min"
+complexity: "2.06"
 ---
 
 Bärenpark: The Bad News Bears contains three separate modules that can be used individually or together with the Bärenpark base game.
