@@ -6,22 +6,26 @@ import ThumbnailGrid from "../components/thumbnailGrid";
 import Hero from "../components/hero";
 const convert = require("xml-js");
 
+const bggUrl =
+	"https://boardgamegeek.com/xmlapi2/collection?username=michelle06";
+
 export default async function Home({ allGamesData }: any) {
 	const [games, setGames] = useState([]);
 
-	const url =
-		"https://boardgamegeek.com/xmlapi2/collection?username=michelle06";
+	const getGames = async () => {
+		try {
+			const response = await axios.get(bggUrl);
+			console.log(response);
+			const data = JSON.parse(
+				convert.xml2json(response.data, { compact: true, spaces: 2 })
+			);
+			console.log(data);
 
-	const getGames = await axios.get(url).then((res) => {
-		console.log(res);
-		const data = JSON.parse(
-			convert.xml2json(res.data, { compact: true, spaces: 2 })
-		).catch((err: any) => {
+			setGames(response?.data);
+		} catch (err) {
 			console.log(err);
-		});
-		console.log(data);
-		setGames(data.items.items);
-	});
+		}
+	};
 
 	useEffect(() => {
 		getGames();
