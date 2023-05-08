@@ -12,7 +12,7 @@ const bggUrl = "https://boardgamegeek.com/xmlapi2/thing?id=";
 
 export default function Details(props: any) {
 	const [loading, setLoading] = useState(true);
-	const [gameData, setGameData] = useState({});
+	const [gameData, setGameData] = useState({} as any);
 	const router = useRouter();
 	const gameId = router.query.id;
 
@@ -59,7 +59,6 @@ export default function Details(props: any) {
 
 					<Cta
 						bgg={`https://boardgamegeek.com/boardgame/${gameData._attributes.id}`}
-						official={gameData.linkOfficial}
 					/>
 				</Section>
 
