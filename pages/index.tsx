@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { getSortedGamesData } from "../lib/games";
 import Head from "next/head";
 import ThumbnailGrid from "../components/thumbnailGrid";
 import Hero from "../components/hero";
@@ -12,6 +11,7 @@ const bggUrl =
 
 export default function Home(props: any) {
 	const [games, setGames] = useState([]);
+	const [error, setError] = useState("");
 
 	const getGames = async () => {
 		try {
@@ -20,8 +20,8 @@ export default function Home(props: any) {
 				convert.xml2json(response.data, { compact: true, spaces: 2 })
 			);
 			setGames(data.items.item);
-		} catch (err) {
-			console.log(err);
+		} catch (err: any) {
+			setError(err.message);
 		}
 	};
 
