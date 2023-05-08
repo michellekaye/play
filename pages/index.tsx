@@ -18,8 +18,6 @@ export default function Home(props: any) {
 			const data = JSON.parse(
 				convert.xml2json(response.data, { compact: true, spaces: 2 })
 			);
-
-			console.log(data.items.item);
 			setGames(data.items.item);
 		} catch (err) {
 			console.log(err);

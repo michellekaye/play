@@ -1,11 +1,9 @@
-import styles from './section.module.scss'
+import styles from "./section.module.scss";
 
 export default function Section({ children }: any) {
-  return (
+	return (
 		<section className={styles.section}>
-			<div className={styles.wrapper}>
-      	{children}
-			</div>
-    </section>
-  )
+			<div className={styles.wrapper}>{children}</div>
+		</section>
+	);
 }

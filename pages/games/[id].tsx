@@ -25,7 +25,6 @@ export default function Details(props: any) {
 			);
 			setGameData(data.items.item);
 			setLoading(false);
-			console.log(gameData);
 		} catch (err) {
 			console.log(err);
 			setLoading(false);
@@ -39,8 +38,6 @@ export default function Details(props: any) {
 	if (loading || !gameData) {
 		return <p>Loading...</p>;
 	}
-
-	console.log(gameData);
 
 	return (
 		<>
