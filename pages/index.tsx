@@ -15,13 +15,12 @@ export default function Home({ allGamesData }: any) {
 	const getGames = async () => {
 		try {
 			const response = await axios.get(bggUrl);
-			console.log(response);
 			const data = JSON.parse(
 				convert.xml2json(response.data, { compact: true, spaces: 2 })
 			);
-			console.log(data);
 
-			setGames(response?.data);
+			console.log(data.items.item);
+			setGames(data.items.item);
 		} catch (err) {
 			console.log(err);
 		}
@@ -48,7 +47,7 @@ export default function Home({ allGamesData }: any) {
 				subtitle="Showcasing Michelle's complete board game collection (with info from Board Game Geek)."
 			/>
 
-			<ThumbnailGrid games={allGamesData} />
+			<ThumbnailGrid games={games} />
 		</>
 	);
 }
