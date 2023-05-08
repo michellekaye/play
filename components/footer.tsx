@@ -5,7 +5,8 @@ const Footer = (props: any) => {
 	return (
 		<footer className={styles.footer}>
 			<p>
-				This site is built using NextJS, AWS S3, CD, and the BoardGameGeek API.
+				This site is built using NextJS, AWS S3, CI/CD, and the BoardGameGeek
+				API.
 			</p>
 			<p>
 				<Link href="http://michelle-kaye.com" passHref={true}>
