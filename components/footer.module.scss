@@ -1,0 +1,19 @@
+.footer {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-size: 0.75rem;
+	letter-spacing: 0.1px;
+	justify-content: center;
+	width: 100%;
+	padding: 2rem;
+	color: #999 !important;
+
+	p {
+		margin: 0.25rem;
+	}
+
+	a {
+		color: inherit;
+	}
+}

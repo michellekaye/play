@@ -1,11 +1,13 @@
-import Header from '../components/header';
-import styles from './layout.module.scss';
+import Header from "../components/header";
+import Footer from "../components/footer";
+import styles from "./layout.module.scss";
 
 export default function Layout({ children }: any) {
-  return (
+	return (
 		<main className={styles.main}>
 			<Header />
 			{children}
+			<Footer />
 		</main>
-  )
+	);
 }
