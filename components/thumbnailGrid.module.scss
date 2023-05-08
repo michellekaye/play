@@ -28,8 +28,9 @@
 	background-repeat: none;
 	border: 3px solid transparent;
 	border-radius: 5px;
-	margin: .5rem;
-	transition: .2s ease-in-out;
+	margin: 0.5rem;
+	transition: 0.2s ease-in-out;
+	position: relative;
 
 	&:hover {
 		border: 2px solid #fff;
@@ -45,4 +46,28 @@
 		width: 18%;
 		padding-bottom: 18%;
 	}
+}
+
+.own {
+	background: #000;
+	color: #fff;
+	font-size: 0.6rem;
+	padding: 0.5rem;
+	position: absolute;
+	bottom: 2rem;
+	left: -3px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.wishlist {
+	background: #e50914;
+	color: #fff;
+	font-size: 0.6rem;
+	padding: 0.5rem;
+	position: absolute;
+	bottom: 2rem;
+	left: -3px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }

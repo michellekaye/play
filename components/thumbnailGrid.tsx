@@ -22,7 +22,13 @@ export default function ThumbnailGrid({ games, heading }: any) {
 								style={{
 									backgroundImage: `url("${game.image._text}")`,
 								}}
-							/>
+							>
+								{game.status._attributes.own === "1" ? (
+									<span className={`${styles.own}`}>Own</span>
+								) : (
+									<span className={`${styles.wishlist}`}>Wishlist</span>
+								)}
+							</div>
 						</Link>
 					);
 				})}
