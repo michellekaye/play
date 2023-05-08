@@ -9,7 +9,7 @@ const convert = require("xml-js");
 const bggUrl =
 	"https://boardgamegeek.com/xmlapi2/collection?username=michelle06";
 
-export default function Home({ allGamesData }: any) {
+export default function Home(props: any) {
 	const [games, setGames] = useState([]);
 
 	const getGames = async () => {
@@ -50,13 +50,4 @@ export default function Home({ allGamesData }: any) {
 			<ThumbnailGrid games={games} />
 		</>
 	);
-}
-
-export async function getStaticProps() {
-	const allGamesData = getSortedGamesData();
-	return {
-		props: {
-			allGamesData,
-		},
-	};
 }

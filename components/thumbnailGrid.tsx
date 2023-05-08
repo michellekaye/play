@@ -17,14 +17,12 @@ export default function ThumbnailGrid({ games, heading }: any) {
 							href={`/games/${game._attributes.objectid}`}
 							passHref={true}
 						>
-							<>
-								<div
-									className={`${styles.img} ${`avatar-${game.id}`}`}
-									style={{
-										backgroundImage: `url("${game.image._text}")`,
-									}}
-								/>
-							</>
+							<div
+								className={`${styles.img} ${`avatar-${game.id}`}`}
+								style={{
+									backgroundImage: `url("${game.image._text}")`,
+								}}
+							/>
 						</Link>
 					);
 				})}
