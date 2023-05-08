@@ -1,7 +1,7 @@
 .sidebar {
 	color: #fff;
 	font-size: 12px;
-	letter-spacing: 1px;
+	letter-spacing: 0.1px;
 	line-height: 2;
 	order: 1;
 	padding: 1rem 2rem;
@@ -13,7 +13,7 @@
 
 	@media (min-width: 800px) {
 		order: 2;
-		max-width: 300px;
+		max-width: 370px;
 	}
 }
 

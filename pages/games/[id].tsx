@@ -6,6 +6,7 @@ import Flex from "../../components/flex";
 import Hero from "../../components/hero";
 import Section from "../../components/section";
 import Sidebar from "../../components/sidebar";
+import Tags from "../../components/tags";
 const convert = require("xml-js");
 
 const bggUrl = "https://boardgamegeek.com/xmlapi2/thing?id=";
@@ -13,6 +14,8 @@ const bggUrl = "https://boardgamegeek.com/xmlapi2/thing?id=";
 export default function Details(props: any) {
 	const [loading, setLoading] = useState(true);
 	const [gameData, setGameData] = useState({} as any);
+	const [mechanics, setMechanics] = useState([]);
+	const [category, setCategory] = useState([]);
 	const router = useRouter();
 	const gameId = router.query.id;
 
@@ -24,11 +27,22 @@ export default function Details(props: any) {
 				convert.xml2json(response.data, { compact: true, spaces: 2 })
 			);
 			setGameData(data.items.item);
+			setMechanics(getCategory("boardgamemechanic", data.items.item));
+			setCategory(getCategory("boardgamecategory", data.items.item));
 			setLoading(false);
 		} catch (err) {
-			console.log(err);
 			setLoading(false);
 		}
+	};
+
+	const getCategory = (category: string, game: any) => {
+		return game.link
+			.filter((link: any) => {
+				return link._attributes.type === category ? link : null;
+			})
+			.map((link: any) => {
+				return link._attributes.value;
+			});
 	};
 
 	useEffect(() => {
@@ -36,7 +50,7 @@ export default function Details(props: any) {
 	}, [gameId]);
 
 	if (loading || !gameData) {
-		return <p>Loading...</p>;
+		return <p></p>;
 	}
 
 	return (
@@ -64,27 +78,36 @@ export default function Details(props: any) {
 				</Section>
 
 				<Sidebar>
-					<p>
-						Players: {gameData.minplayers._attributes.value} -{" "}
-						{gameData.maxplayers._attributes.value}
-						<br />
-						Playing time: {gameData.playingtime._attributes.value} min
-						<br />
-						Complexity:&nbsp;
-						{Math.round(
-							parseFloat(
-								gameData.statistics.ratings.averageweight._attributes.value
-							) * 100
-						) / 100}
-						&nbsp;/ 5
-						<br />
-						BGG Rating:&nbsp;
-						{Math.round(
-							parseFloat(
-								gameData.statistics.ratings.average._attributes.value
-							) * 100
-						) / 100}
-					</p>
+					<>
+						<p>
+							Players: {gameData.minplayers._attributes.value} -{" "}
+							{gameData.maxplayers._attributes.value}
+							<br />
+							Playing time: {gameData.playingtime._attributes.value} min
+							<br />
+							Complexity:&nbsp;
+							{Math.round(
+								parseFloat(
+									gameData.statistics.ratings.averageweight._attributes.value
+								) * 100
+							) / 100}
+							&nbsp;/ 5
+							<br />
+							BGG Rating:&nbsp;
+							{Math.round(
+								parseFloat(
+									gameData.statistics.ratings.average._attributes.value
+								) * 100
+							) / 100}
+							&nbsp;/ 10
+						</p>
+
+						<p>Category:</p>
+						<Tags tags={category} />
+
+						<p>Mechanics:</p>
+						<Tags tags={mechanics} />
+					</>
 				</Sidebar>
 			</Flex>
 		</>
