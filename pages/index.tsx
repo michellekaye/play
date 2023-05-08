@@ -4,6 +4,7 @@ import { getSortedGamesData } from "../lib/games";
 import Head from "next/head";
 import ThumbnailGrid from "../components/thumbnailGrid";
 import Hero from "../components/hero";
+import Refresh from "../components/refresh";
 const convert = require("xml-js");
 
 const bggUrl =
@@ -45,7 +46,7 @@ export default function Home(props: any) {
 				subtitle="Showcasing Michelle's complete board game collection (with info from Board Game Geek)."
 			/>
 
-			<ThumbnailGrid games={games} />
+			{games.length > 0 ? <ThumbnailGrid games={games} /> : <Refresh />}
 		</>
 	);
 }

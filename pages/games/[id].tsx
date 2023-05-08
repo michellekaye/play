@@ -43,7 +43,11 @@ export default function Details(props: any) {
 		<>
 			<Hero
 				game={gameData?._attributes?.id}
-				title={gameData?.name[0]?._attributes.value}
+				title={
+					gameData?.name[0]
+						? gameData?.name[0]?._attributes.value
+						: gameData?.name._attributes.value
+				}
 				subtitle={gameData?.yearPublished?._attributes.value}
 				image={gameData?.image?._text}
 			/>

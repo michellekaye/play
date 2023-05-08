@@ -1,0 +1,15 @@
+.refresh {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	max-width: 450px;
+	width: 100%;
+	line-height: 2rem;
+	margin: 0 auto;
+
+	p {
+		margin-bottom: 0;
+	}
+}
