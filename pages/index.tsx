@@ -3,6 +3,7 @@ import axios from "axios";
 import Head from "next/head";
 import ThumbnailGrid from "../components/thumbnailGrid";
 import Hero from "../components/hero";
+import Filters from "../components/filters";
 import Refresh from "../components/refresh";
 const convert = require("xml-js");
 
@@ -12,6 +13,7 @@ const bggUrl =
 export default function Home(props: any) {
 	const [games, setGames] = useState([]);
 	const [error, setError] = useState("");
+	const [filterStatus, setFilterStatus] = useState("all");
 
 	const getGames = async () => {
 		try {
@@ -28,6 +30,26 @@ export default function Home(props: any) {
 	useEffect(() => {
 		getGames();
 	}, []);
+
+	const handleStatusChange = (e: any) => {
+		e.preventDefault;
+		setFilterStatus(e.target.defaultValue);
+	};
+
+	console.log(games);
+
+	const visibleGames = games.filter((game: any) => {
+		switch (filterStatus) {
+			case "wishlist":
+				if (game.status._attributes.own === "0") return game;
+				break;
+			case "own":
+				if (game.status._attributes.own === "1") return game;
+				break;
+			default:
+				return game;
+		}
+	});
 
 	return (
 		<>
@@ -46,7 +68,12 @@ export default function Home(props: any) {
 				subtitle="Showcasing Michelle's complete board game collection (with info from Board Game Geek)."
 			/>
 
-			{games.length > 0 ? <ThumbnailGrid games={games} /> : <Refresh />}
+			<Filters
+				handleStatusChange={handleStatusChange}
+				filterStatus={filterStatus}
+			/>
+
+			{games.length > 0 ? <ThumbnailGrid games={visibleGames} /> : <Refresh />}
 		</>
 	);
 }
