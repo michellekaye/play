@@ -1,8 +1,8 @@
 .filters {
 	color: #fff;
-	padding: 0 5.5rem;
+	padding: 0 3rem;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
 
 	span {
@@ -12,8 +12,17 @@
 	.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
 		color: #fff;
 	}
+
+	@media (min-width: 800px) {
+		flex-direction: row;
+		padding: 0 7.5rem;
+	}
 }
 
 .slider {
-	width: 250px;
+	width: 100%;
+
+	@media (min-width: 800px) {
+		width: 250px;
+	}
 }

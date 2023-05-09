@@ -102,7 +102,7 @@ export default function Details(props: any) {
 							&nbsp;/ 10
 						</p>
 
-						<p>Category:</p>
+						<p>Categories:</p>
 						<Tags tags={category} />
 
 						<p>Mechanics:</p>
