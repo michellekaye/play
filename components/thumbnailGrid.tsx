@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./thumbnailGrid.module.scss";
 
-export default function ThumbnailGrid({ games, heading }: any) {
+export default function ThumbnailGrid({ games, collection, heading }: any) {
 	const gamesList = games;
 
 	return (
@@ -10,20 +10,24 @@ export default function ThumbnailGrid({ games, heading }: any) {
 
 			<div className={styles.list}>
 				{gamesList.map((game: any) => {
+					const collectionItem = collection.find((g) => {
+						return g._attributes.objectid === game.id;
+					});
+
 					return (
 						<Link
-							key={game._attributes.objectid}
+							key={game.id}
 							className={styles.thumb}
-							href={`/games/${game._attributes.objectid}`}
+							href={`/games/${game.id}`}
 							passHref={true}
 						>
 							<div
 								className={`${styles.img} ${`avatar-${game.id}`}`}
 								style={{
-									backgroundImage: `url("${game.image._text}")`,
+									backgroundImage: `url("${game.image}")`,
 								}}
 							>
-								{game.status._attributes.own === "1" ? (
+								{collectionItem.status._attributes.own === "1" ? (
 									<span className={`${styles.own}`}>Own</span>
 								) : (
 									<span className={`${styles.wishlist}`}>Wishlist</span>

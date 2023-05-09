@@ -10,18 +10,89 @@ const convert = require("xml-js");
 const bggUrl =
 	"https://boardgamegeek.com/xmlapi2/collection?username=michelle06";
 
+const minDistance = 1;
+
 export default function Home(props: any) {
+	const [collection, setCollection] = useState([]);
 	const [games, setGames] = useState([]);
 	const [error, setError] = useState("");
 	const [filterStatus, setFilterStatus] = useState("all");
+	const [filterComplexity, setFilterComplexity] = useState<number[]>([0, 5]);
 
 	const getGames = async () => {
 		try {
-			const response = await axios.get(bggUrl);
-			const data = JSON.parse(
-				convert.xml2json(response.data, { compact: true, spaces: 2 })
-			);
-			setGames(data.items.item);
+			const collection = await axios.get(bggUrl).then((res) => {
+				const data = JSON.parse(
+					convert.xml2json(res.data, { compact: true, spaces: 2 })
+				);
+				return data.items.item;
+			});
+			setCollection(collection);
+
+			const gameUrl =
+				"https://boardgamegeek.com/xmlapi2/thing?id=" +
+				collection.map((game: any) => game._attributes.objectid).join(",") +
+				"&stats=1";
+
+			const rawGamesData = await axios.get(gameUrl).then((res) => {
+				const data = JSON.parse(
+					convert.xml2json(res.data, { compact: true, spaces: 2 })
+				);
+				return data.items.item;
+			});
+
+			const gamesData = rawGamesData.map((game) => {
+				const getCategory = (cat) => {
+					return game.link
+						.filter((link) => {
+							return link._attributes.type === cat ? link : null;
+						})
+						.map((link) => {
+							return link._attributes.value;
+						});
+				};
+
+				const decodeHTML = (html) => {
+					var txt = document.createElement("textarea");
+					txt.innerHTML = html;
+					return txt.value;
+				};
+
+				return {
+					id: game._attributes.id,
+					name: Array.isArray(game.name)
+						? game.name[0]._attributes.value
+						: game.name._attributes.value,
+					rating:
+						Math.round(
+							parseFloat(game.statistics.ratings.average._attributes.value) *
+								100
+						) / 100,
+					thumbnail: game.thumbnail._text,
+					image: game.image._text,
+					year: game.yearpublished._attributes.value,
+					numPlayers: {
+						min: parseInt(game.minplayers._attributes.value),
+						max: parseInt(game.maxplayers._attributes.value),
+					},
+					playTime: {
+						min: parseInt(game.minplaytime._attributes.value),
+						max: parseInt(game.maxplaytime._attributes.value),
+					},
+					url: "https://boardgamegeek.com/boardgame/" + game._attributes.id,
+					description: decodeHTML(game.description._text),
+					categories: getCategory("boardgamecategory"),
+					mechanics: getCategory("boardgamemechanic"),
+					designer: getCategory("boardgamedesigner")[0],
+					complexity:
+						Math.round(
+							parseFloat(
+								game.statistics.ratings.averageweight._attributes.value
+							) * 100
+						) / 100,
+				};
+			});
+			setGames(gamesData);
 		} catch (err: any) {
 			setError(err.message);
 		}
@@ -36,20 +107,52 @@ export default function Home(props: any) {
 		setFilterStatus(e.target.defaultValue);
 	};
 
-	console.log(games);
-
-	const visibleGames = games.filter((game: any) => {
-		switch (filterStatus) {
-			case "wishlist":
-				if (game.status._attributes.own === "0") return game;
-				break;
-			case "own":
-				if (game.status._attributes.own === "1") return game;
-				break;
-			default:
-				return game;
+	const handleComplexityChange = (
+		event: Event,
+		newValue: number | number[],
+		activeThumb: number
+	) => {
+		if (!Array.isArray(newValue)) {
+			return;
 		}
-	});
+
+		if (newValue[1] - newValue[0] < minDistance) {
+			if (activeThumb === 0) {
+				const clamped = Math.min(newValue[0], 100 - minDistance);
+				setFilterComplexity([clamped, clamped + minDistance]);
+			} else {
+				const clamped = Math.max(newValue[1], minDistance);
+				setFilterComplexity([clamped - minDistance, clamped]);
+			}
+		} else {
+			setFilterComplexity(newValue as number[]);
+		}
+	};
+
+	const visibleGames = games
+		.filter((game: any) => {
+			const collectionItem = collection.find((g) => {
+				return g._attributes.objectid === game.id;
+			});
+			switch (filterStatus) {
+				case "wishlist":
+					if (collectionItem?.status?._attributes.own === "0") return game;
+					break;
+				case "own":
+					if (collectionItem?.status?._attributes.own === "1") return game;
+					break;
+				default:
+					return game;
+			}
+		})
+		.filter((game: any) => {
+			if (
+				game.complexity >= filterComplexity[0] &&
+				game.complexity <= filterComplexity[1]
+			)
+				return game;
+			return null;
+		});
 
 	return (
 		<>
@@ -70,10 +173,16 @@ export default function Home(props: any) {
 
 			<Filters
 				handleStatusChange={handleStatusChange}
+				handleComplexityChange={handleComplexityChange}
 				filterStatus={filterStatus}
+				filterComplexity={filterComplexity}
 			/>
 
-			{games.length > 0 ? <ThumbnailGrid games={visibleGames} /> : <Refresh />}
+			{games.length > 0 ? (
+				<ThumbnailGrid games={visibleGames} collection={collection} />
+			) : (
+				<Refresh />
+			)}
 		</>
 	);
 }

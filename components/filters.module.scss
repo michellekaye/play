@@ -1,9 +1,19 @@
 .filters {
 	color: #fff;
 	padding: 0 5.5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 
 	span {
-		color: inherit;
 		font-size: 0.8rem;
 	}
+
+	.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
+		color: #fff;
+	}
+}
+
+.slider {
+	width: 250px;
 }
