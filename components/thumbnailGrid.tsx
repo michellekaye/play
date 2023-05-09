@@ -10,7 +10,7 @@ export default function ThumbnailGrid({ games, collection, heading }: any) {
 
 			<div className={styles.list}>
 				{gamesList.map((game: any) => {
-					const collectionItem = collection.find((g) => {
+					const collectionItem = collection.find((g: any) => {
 						return g._attributes.objectid === game.id;
 					});
 
