@@ -12,33 +12,43 @@ import styles from "./filters.module.scss";
 export default function Filters({
 	handleStatusChange,
 	handleComplexityChange,
+	handlePlayingTimeChange,
 	filterStatus,
 	filterComplexity,
+	filterPlayingTime,
 }: any) {
-	const marks = [
+	const playTimeMarks = [
 		{
 			value: 0,
 			label: "0",
 		},
 		{
-			value: 1,
-			label: "1",
+			value: 30,
+			label: "30",
 		},
 		{
-			value: 2,
-			label: "2",
+			value: 60,
+			label: "60",
 		},
 		{
-			value: 3,
-			label: "3",
+			value: 90,
+			label: "90",
 		},
 		{
-			value: 4,
-			label: "4",
+			value: 120,
+			label: "120",
 		},
 		{
-			value: 5,
-			label: "5",
+			value: 150,
+			label: "150",
+		},
+		{
+			value: 180,
+			label: "180",
+		},
+		{
+			value: 210,
+			label: "210+",
 		},
 	];
 
@@ -99,28 +109,54 @@ export default function Filters({
 				</RadioGroup>
 			</FormControl>
 
-			<div className={styles.slider}>
-				<Typography
-					id="complexity-slider"
-					variant="body2"
-					component="h6"
-					gutterBottom
-				>
-					Complexity
-				</Typography>
-				<Slider
-					getAriaLabel={() => "Complexity"}
-					value={filterComplexity}
-					onChange={handleComplexityChange}
-					valueLabelDisplay="auto"
-					disableSwap
-					step={1}
-					min={0}
-					max={5}
-					size="small"
-					marks
-					color="error"
-				/>
+			<div className={styles.sliders}>
+				<div className={styles.slider}>
+					<Typography
+						id="playtime-slider"
+						variant="body2"
+						component="h6"
+						gutterBottom
+					>
+						Playing time
+					</Typography>
+					<Slider
+						getAriaLabel={() => "Playing time"}
+						value={filterPlayingTime}
+						onChange={handlePlayingTimeChange}
+						valueLabelDisplay="auto"
+						disableSwap
+						step={30}
+						min={0}
+						max={210}
+						size="small"
+						marks
+						color="error"
+					/>
+				</div>
+
+				<div className={styles.slider}>
+					<Typography
+						id="complexity-slider"
+						variant="body2"
+						component="h6"
+						gutterBottom
+					>
+						Complexity
+					</Typography>
+					<Slider
+						getAriaLabel={() => "Complexity"}
+						value={filterComplexity}
+						onChange={handleComplexityChange}
+						valueLabelDisplay="auto"
+						disableSwap
+						step={1}
+						min={0}
+						max={5}
+						size="small"
+						marks
+						color="error"
+					/>
+				</div>
 			</div>
 		</div>
 	);

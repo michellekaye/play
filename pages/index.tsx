@@ -6,12 +6,14 @@ import ThumbnailGrid from "../components/thumbnailGrid";
 import Hero from "../components/hero";
 import Filters from "../components/filters";
 import Refresh from "../components/refresh";
+import { NightlifeOutlined } from "@mui/icons-material";
 const convert = require("xml-js");
 
 const bggUrl =
 	"https://boardgamegeek.com/xmlapi2/collection?username=michelle06";
 
 const minDistance = 1;
+const minDistancePlayingTime = 30;
 
 export default function Home(props: any) {
 	const [collection, setCollection] = useState([]);
@@ -19,6 +21,9 @@ export default function Home(props: any) {
 	const [error, setError] = useState("");
 	const [filterStatus, setFilterStatus] = useState("all");
 	const [filterComplexity, setFilterComplexity] = useState<number[]>([0, 5]);
+	const [filterPlayingTime, setFilterPlayingTime] = useState<number[]>([
+		0, 210,
+	]);
 
 	const getGames = async () => {
 		try {
@@ -130,6 +135,28 @@ export default function Home(props: any) {
 		}
 	};
 
+	const handlePlayingTimeChange = (
+		event: Event,
+		newValue: number | number[],
+		activeThumb: number
+	) => {
+		if (!Array.isArray(newValue)) {
+			return;
+		}
+
+		if (newValue[1] - newValue[0] < minDistancePlayingTime) {
+			if (activeThumb === 0) {
+				const clamped = Math.min(newValue[0], 100 - minDistancePlayingTime);
+				setFilterPlayingTime([clamped, clamped + minDistancePlayingTime]);
+			} else {
+				const clamped = Math.max(newValue[1], minDistancePlayingTime);
+				setFilterPlayingTime([clamped - minDistancePlayingTime, clamped]);
+			}
+		} else {
+			setFilterPlayingTime(newValue as number[]);
+		}
+	};
+
 	const visibleGames = games
 		.filter((game: any) => {
 			const collectionItem = collection.find((g: any) => {
@@ -150,6 +177,19 @@ export default function Home(props: any) {
 			if (
 				game.complexity >= filterComplexity[0] &&
 				game.complexity <= filterComplexity[1]
+			)
+				return game;
+			return null;
+		})
+		.filter((game: any) => {
+			if (
+				game.playTime.min >= filterPlayingTime[0] &&
+				game.playTime.min <= filterPlayingTime[1]
+			)
+				return game;
+			if (
+				game.playTime.max >= filterPlayingTime[0] &&
+				game.playTime.max <= filterPlayingTime[1]
 			)
 				return game;
 			return null;
@@ -175,8 +215,10 @@ export default function Home(props: any) {
 			<Filters
 				handleStatusChange={handleStatusChange}
 				handleComplexityChange={handleComplexityChange}
+				handlePlayingTimeChange={handlePlayingTimeChange}
 				filterStatus={filterStatus}
 				filterComplexity={filterComplexity}
+				filterPlayingTime={filterPlayingTime}
 			/>
 
 			{games.length > 0 ? (

@@ -19,10 +19,22 @@
 	}
 }
 
+.sliders {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 0;
+
+	@media (min-width: 800px) {
+		flex-direction: row;
+		padding: 0;
+	}
+}
+
 .slider {
 	width: 100%;
 
 	@media (min-width: 800px) {
-		width: 250px;
+		width: 300px;
+		padding: 0 0 0 4rem;
 	}
 }

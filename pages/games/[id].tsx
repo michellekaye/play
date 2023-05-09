@@ -83,7 +83,8 @@ export default function Details(props: any) {
 							Players: {gameData.minplayers._attributes.value} -{" "}
 							{gameData.maxplayers._attributes.value}
 							<br />
-							Playing time: {gameData.playingtime._attributes.value} min
+							Playing time: {gameData.minplaytime._attributes.value} -{" "}
+							{gameData.maxplaytime._attributes.value} min
 							<br />
 							Complexity:&nbsp;
 							{Math.round(
