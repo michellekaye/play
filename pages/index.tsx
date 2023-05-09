@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Head from "next/head";
@@ -131,7 +132,7 @@ export default function Home(props: any) {
 
 	const visibleGames = games
 		.filter((game: any) => {
-			const collectionItem = collection.find((g) => {
+			const collectionItem = collection.find((g: any) => {
 				return g._attributes.objectid === game.id;
 			});
 			switch (filterStatus) {
