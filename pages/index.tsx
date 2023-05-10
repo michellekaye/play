@@ -24,6 +24,7 @@ export default function Home(props: any) {
 	const [filterPlayingTime, setFilterPlayingTime] = useState<number[]>([
 		0, 210,
 	]);
+	const [filterPlayers, setFilterPlayers] = useState<number>(0);
 
 	const getGames = async () => {
 		try {
@@ -157,6 +158,10 @@ export default function Home(props: any) {
 		}
 	};
 
+	const handlePlayersChange = (event: SelectChangeEvent) => {
+		setFilterPlayers(event.target.value);
+	};
+
 	const visibleGames = games
 		.filter((game: any) => {
 			const collectionItem = collection.find((g: any) => {
@@ -193,6 +198,15 @@ export default function Home(props: any) {
 			)
 				return game;
 			return null;
+		})
+		.filter((game: any) => {
+			if (filterPlayers === 0) return game;
+			if (
+				game.numPlayers.min <= filterPlayers &&
+				game.numPlayers.max >= filterPlayers
+			)
+				return game;
+			return null;
 		});
 
 	return (
@@ -216,9 +230,11 @@ export default function Home(props: any) {
 				handleStatusChange={handleStatusChange}
 				handleComplexityChange={handleComplexityChange}
 				handlePlayingTimeChange={handlePlayingTimeChange}
+				handlePlayersChange={handlePlayersChange}
 				filterStatus={filterStatus}
 				filterComplexity={filterComplexity}
 				filterPlayingTime={filterPlayingTime}
+				filterPlayers={filterPlayers}
 			/>
 
 			{games.length > 0 ? (

@@ -1,9 +1,11 @@
 // @ts-nocheck
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import InputLabel from "@mui/material/InputLabel";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import MenuItem from "@mui/material/MenuItem";
 import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
+import Select from "@mui/material/Select";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
@@ -13,9 +15,11 @@ export default function Filters({
 	handleStatusChange,
 	handleComplexityChange,
 	handlePlayingTimeChange,
+	handlePlayersChange,
 	filterStatus,
 	filterComplexity,
 	filterPlayingTime,
+	filterPlayers,
 }: any) {
 	const playTimeMarks = [
 		{
@@ -110,6 +114,29 @@ export default function Filters({
 			</FormControl>
 
 			<div className={styles.sliders}>
+				<div className={styles.slider}>
+					<Typography
+						id="players-slider"
+						variant="body2"
+						component="h6"
+						gutterBottom
+					>
+						Number of players
+					</Typography>
+					<Slider
+						aria-label="Number of Players"
+						defaultValue={0}
+						valueLabelDisplay="auto"
+						value={filterPlayers}
+						onChange={handlePlayersChange}
+						step={1}
+						marks
+						min={0}
+						max={8}
+						color="error"
+					/>
+				</div>
+
 				<div className={styles.slider}>
 					<Typography
 						id="playtime-slider"
