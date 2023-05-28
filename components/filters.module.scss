@@ -14,7 +14,7 @@
 		color: #fff;
 	}
 
-	@media (min-width: 800px) {
+	@media (min-width: 1230px) {
 		flex-direction: row;
 		padding: 0 7.5rem;
 	}
@@ -24,17 +24,19 @@
 	display: flex;
 	flex-direction: column;
 	padding: 2rem 0;
+	width: 100%;
 
-	@media (min-width: 800px) {
+	@media (min-width: 1000px) {
 		flex-direction: row;
 		padding: 0;
+		width: auto;
 	}
 }
 
 .slider {
 	width: 100%;
 
-	@media (min-width: 800px) {
+	@media (min-width: 1000px) {
 		width: 300px;
 		padding: 0 0 0 4rem;
 	}
